@@ -5,14 +5,15 @@ export const personalInfo = {
   location: "Manhattan, KS, 66502",
   github: "https://github.com/armanzareian",
   linkedin: "https://www.linkedin.com/in/arman-zareian",
+  scholar: "https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=d2_uHBcAAAAJ",
 };
 
 export const summary =
-  "Machine Learning Engineer, Data Scientist, and Full Stack Developer with 5+ years of experience building scalable ML and data systems across industry and academia. Deep expertise in privacy-preserving diffusion models, Large Language Models (LLMs), multi-agent architectures, GANs, and vision transformers. Graduate research focused on differential privacy for generative AI, multi-agent LLM inference, and privacy-utility optimization in Stable Diffusion variants. Proven track record in latency optimization, large-scale model deployment, identity obfuscation techniques, and end-to-end ML pipelines. Published in Artificial Intelligence Review (Q1, 60+ citations).";
+  "Machine Learning Engineer, Data Scientist, and Full Stack Developer with 5+ years of experience building scalable ML and data systems across industry and academia. Deep expertise in privacy-preserving diffusion models, Large Language Models (LLMs), multi-agent architectures, GANs, and vision transformers. Graduate research focused on differential privacy for generative AI, multi-agent LLM inference, and privacy-utility optimization in Stable Diffusion variants. Proven track record in latency optimization, large-scale model deployment, identity obfuscation techniques, and end-to-end ML pipelines. Published in Artificial Intelligence Review (Q1, 70+ citations).";
 
 export const stats = [
   { value: 5, suffix: "+", label: "Years Experience" },
-  { value: 60, suffix: "+", label: "Citations" },
+  { value: 70, suffix: "+", label: "Citations" },
   { value: 99.9, suffix: "%", label: "Service Uptime" },
   { value: 40, suffix: "%", label: "Latency Cut" },
 ];
@@ -191,7 +192,7 @@ export const researchProjects: ResearchProject[] = [
     accent: "#10b981",
     bullets: [
       "Applied game-theoretic learning to stabilize GAN training; improved classification robustness",
-      "Published: Games of GANs — Artificial Intelligence Review (Q1, IF 15.5, 60+ citations)",
+      "Published: Games of GANs — Artificial Intelligence Review (Q1, IF 15.5, 70+ citations)",
     ],
   },
 ];
@@ -248,7 +249,7 @@ export const publications = [
       'Games of GANs: Game-Theoretical Models for Generative Adversarial Networks',
     venue: "Artificial Intelligence Review",
     details: "Volume 56, pages 9771–9807, 2023",
-    impact: "Impact Factor: 13.9 | Q1 | 60+ citations",
+    impact: "Impact Factor: 13.9 | Q1 | 70+ citations",
     links: [
       {
         label: "Springer",

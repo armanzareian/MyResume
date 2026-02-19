@@ -124,9 +124,16 @@ export default function ContactSection() {
     {
       icon: "💼",
       label: "LinkedIn",
-      value: "linkedin.com/in/armanzareian",
+      value: "linkedin.com/in/arman-zareian",
       href: personalInfo.linkedin,
       color: "#f59e0b",
+    },
+    {
+      icon: "🎓",
+      label: "Google Scholar",
+      value: "Arman Zareian",
+      href: personalInfo.scholar,
+      color: "#ec4899",
     },
   ];
 
