@@ -4,7 +4,7 @@ export const personalInfo = {
   phone: "(785) 323-0779",
   location: "Manhattan, KS, 66502",
   github: "https://github.com/armanzareian",
-  linkedin: "https://linkedin.com/in/armanzareian",
+  linkedin: "https://www.linkedin.com/in/arman-zareian",
 };
 
 export const summary =
@@ -252,7 +252,7 @@ export const publications = [
     links: [
       {
         label: "Springer",
-        url: "https://link.springer.com/article/10.1007/s10462-023-10467-7",
+        url: "https://link.springer.com/article/10.1007/s10462-023-10395-6",
       },
     ],
     accent: "#00f5ff",
