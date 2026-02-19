@@ -18,6 +18,9 @@ export const metadata: Metadata = {
     "Software Engineer",
   ],
   authors: [{ name: "Arman Zareian" }],
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
     title: "Arman Zareian — ML Engineer & Full Stack Developer",
     description:
