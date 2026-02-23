@@ -262,8 +262,8 @@ export const publications = [
     type: "manuscript",
     authors: "A. Zareian et al.",
     title:
-      "Multi-Agent LLM Architectures for Stance Detection and Sentiment Analysis",
-    venue: "In preparation for ACL 2026",
+      "SMART-D: Structured Multi-Agent Reasoning with Dynamic Worker Allocation for Target-Aware Stance Detection",
+    venue: "Ready to submit to EMNLP 2026",
     details: "",
     impact: "",
     links: [],
