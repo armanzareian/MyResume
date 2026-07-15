@@ -44,7 +44,7 @@ export default function ExperienceSection() {
               top: 0,
               bottom: 0,
               width: "1px",
-              background: "linear-gradient(to bottom, #00f5ff, #7c3aed, #10b981, #f59e0b)",
+              background: "linear-gradient(to bottom, #ec4899, #00f5ff, #7c3aed, #10b981, #f59e0b)",
             }}
           />
 

@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { researchProjects } from "@/data/resume";
+import { researchProjects, researchInterests } from "@/data/resume";
 
 export default function ResearchSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -32,6 +32,37 @@ export default function ResearchSection() {
           <h2 className="font-black title-underline" style={{ fontSize: "clamp(2rem, 5vw, 3rem)" }}>
             Research Experience
           </h2>
+
+          {/* Research interests */}
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              gap: "0.6rem",
+              marginTop: "1.5rem",
+            }}
+          >
+            <span
+              className="font-mono uppercase"
+              style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "var(--text-muted)" }}
+            >
+              Interests:
+            </span>
+            {researchInterests.map((interest) => (
+              <span
+                key={interest}
+                className="tag text-xs font-semibold"
+                style={{
+                  color: "var(--accent-cyan)",
+                  borderColor: "rgba(0,245,255,0.25)",
+                  background: "rgba(0,245,255,0.06)",
+                }}
+              >
+                {interest}
+              </span>
+            ))}
+          </div>
         </motion.div>
 
         <div

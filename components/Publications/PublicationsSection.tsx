@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { publications, awards, peerReviews } from "@/data/resume";
+import { publications, awards, peerReviews, certifications } from "@/data/resume";
 
 export default function PublicationsSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -82,7 +82,7 @@ export default function PublicationsSection() {
                     className="font-mono uppercase"
                     style={{ fontSize: "0.65rem", color: pub.accent, marginBottom: "0.3rem" }}
                   >
-                    {pub.type === "journal" ? "Journal" : "Manuscript in Preparation"}
+                    {pub.type === "journal" ? "Journal" : "Manuscript · Under Review"}
                   </p>
                   <h3
                     className="font-bold text-white"
@@ -150,6 +150,7 @@ export default function PublicationsSection() {
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
             gap: "1.25rem",
+            alignItems: "start",
           }}
         >
           {/* Awards */}
@@ -211,6 +212,56 @@ export default function PublicationsSection() {
                     }}
                   >
                     {pr.date}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Certifications */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.6 }}
+            className="glass"
+            style={{ padding: "1.5rem" }}
+          >
+            <h3
+              className="font-bold"
+              style={{ fontSize: "1.0625rem", color: "#10b981", marginBottom: "1rem" }}
+            >
+              📜 Certifications
+            </h3>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+              {certifications.map((cert) => (
+                <div
+                  key={cert.issuer + cert.title}
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "flex-start",
+                    gap: "0.5rem",
+                  }}
+                >
+                  <div style={{ minWidth: 0 }}>
+                    <p className="text-white font-medium" style={{ fontSize: "0.8125rem", lineHeight: 1.4 }}>
+                      {cert.title}
+                    </p>
+                    <p style={{ fontSize: "0.7rem", color: "var(--text-muted)", marginTop: "2px" }}>
+                      {cert.issuer}
+                    </p>
+                  </div>
+                  <span
+                    className="tag"
+                    style={{
+                      color: "#10b981",
+                      borderColor: "#10b98140",
+                      background: "#10b98110",
+                      fontSize: "0.7rem",
+                      flexShrink: 0,
+                    }}
+                  >
+                    {cert.date}
                   </span>
                 </div>
               ))}
