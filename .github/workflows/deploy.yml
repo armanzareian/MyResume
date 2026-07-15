@@ -5,8 +5,8 @@ on:
     branches:
       - main
   schedule:
-    # Weekly rebuild so the Google Scholar citation count stays fresh
-    - cron: "0 6 * * 1"
+    # Daily rebuild so the Google Scholar citation count stays fresh
+    - cron: "0 6 * * *"
   workflow_dispatch:
 
 permissions:
