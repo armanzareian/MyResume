@@ -325,7 +325,7 @@ export const publications: Publication[] = [
       },
       {
         label: "Google Scholar",
-        url: personalInfo.scholar,
+        url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d2_uHBcAAAAJ&citation_for_view=d2_uHBcAAAAJ:u-x6o8ySG0sC",
       },
     ],
     accent: "#00f5ff",
@@ -410,11 +410,44 @@ export const peerReviews = [
   { venue: "IEEE Signal Processing Letters", date: "Jan 2025" },
 ];
 
-export const certifications = [
-  { issuer: "Anthropic", title: "Introduction to Subagents", date: "May 2026" },
-  { issuer: "Anthropic", title: "Introduction to Agent Skills", date: "May 2026" },
-  { issuer: "Anthropic", title: "Model Context Protocol: Advanced Topics", date: "May 2026" },
-  { issuer: "Anthropic", title: "Introduction to Model Context Protocol", date: "May 2026" },
-  { issuer: "Anthropic", title: "Claude with the Anthropic API", date: "May 2026" },
+export interface Certification {
+  issuer: string;
+  title: string;
+  date: string;
+  /** Public verification page (Skilljar for Anthropic Academy courses). */
+  url?: string;
+}
+
+export const certifications: Certification[] = [
+  {
+    issuer: "Anthropic",
+    title: "Introduction to Subagents",
+    date: "May 2026",
+    url: "https://verify.skilljar.com/c/j9wz76gk9ubc",
+  },
+  {
+    issuer: "Anthropic",
+    title: "Introduction to Agent Skills",
+    date: "May 2026",
+    url: "https://verify.skilljar.com/c/riedf2h6omup",
+  },
+  {
+    issuer: "Anthropic",
+    title: "Model Context Protocol: Advanced Topics",
+    date: "May 2026",
+    url: "https://verify.skilljar.com/c/o9hgkv9b2nhb",
+  },
+  {
+    issuer: "Anthropic",
+    title: "Introduction to Model Context Protocol",
+    date: "May 2026",
+    url: "https://verify.skilljar.com/c/xz3rwz2ixdgv",
+  },
+  {
+    issuer: "Anthropic",
+    title: "Building with the Claude API",
+    date: "May 2026",
+    url: "https://verify.skilljar.com/c/cbcvnbpcuwe4",
+  },
   { issuer: "Hugging Face", title: "LLM Agents", date: "May 2025" },
 ];

@@ -255,6 +255,21 @@ export default function PublicationsSection() {
                     </p>
                     <p style={{ fontSize: "0.7rem", color: "var(--text-muted)", marginTop: "2px" }}>
                       {cert.issuer}
+                      {cert.url && (
+                        <>
+                          {" · "}
+                          <a
+                            href={cert.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ color: "#10b981", fontWeight: 600, textDecoration: "none" }}
+                            onMouseEnter={(e) => (e.currentTarget.style.textDecoration = "underline")}
+                            onMouseLeave={(e) => (e.currentTarget.style.textDecoration = "none")}
+                          >
+                            Verify ↗
+                          </a>
+                        </>
+                      )}
                     </p>
                   </div>
                   <span
