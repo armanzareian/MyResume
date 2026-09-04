@@ -2,7 +2,13 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { publications, awards, peerReviews, certifications } from "@/data/resume";
+import { publications, awards, peerReviews, certifications, PublicationType } from "@/data/resume";
+
+const TYPE_STYLE: Record<PublicationType, { badge: string; label: string }> = {
+  journal: { badge: "J", label: "Journal" },
+  review: { badge: "R", label: "Under Review" },
+  manuscript: { badge: "M", label: "Preprint · Manuscript" },
+};
 
 export default function PublicationsSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -74,7 +80,7 @@ export default function PublicationsSection() {
                     border: `1px solid ${pub.accent}40`,
                   }}
                 >
-                  {pub.type === "journal" ? "J" : "M"}
+                  {TYPE_STYLE[pub.type].badge}
                 </div>
 
                 <div style={{ flex: 1, minWidth: 0 }}>
@@ -82,7 +88,7 @@ export default function PublicationsSection() {
                     className="font-mono uppercase"
                     style={{ fontSize: "0.65rem", color: pub.accent, marginBottom: "0.3rem" }}
                   >
-                    {pub.type === "journal" ? "Journal" : "Manuscript · Under Review"}
+                    {TYPE_STYLE[pub.type].label}
                   </p>
                   <h3
                     className="font-bold text-white"

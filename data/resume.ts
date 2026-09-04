@@ -24,6 +24,7 @@ export const researchInterests = [
   "Machine Learning",
   "Multi-Agent Systems with LLMs",
   "Generative Models",
+  "Privacy-Preserving AI",
   "Game Theory",
 ];
 
@@ -46,15 +47,25 @@ export const skillCategories: SkillCategory[] = [
     color: "#00f5ff",
     skills: [
       "PyTorch",
-      "TensorFlow",
       "Keras",
       "scikit-learn",
-      "Hugging Face Transformers",
       "NumPy",
       "Pandas",
       "Vision Transformers",
       "GANs",
       "Diffusion Models",
+    ],
+  },
+  {
+    category: "LLM / Agents",
+    color: "#ec4899",
+    skills: [
+      "LangGraph",
+      "LangChain",
+      "LlamaIndex",
+      "RAG",
+      "Tool Calling",
+      "Model Context Protocol (MCP)",
     ],
   },
   {
@@ -94,24 +105,19 @@ export const skillCategories: SkillCategory[] = [
     skills: ["PostgreSQL", "MySQL", "MongoDB"],
   },
   {
-    category: "Visualization",
-    color: "#ec4899",
-    skills: ["Matplotlib", "Seaborn", "Plotly"],
-  },
-  {
-    category: "Automation",
+    category: "Visualization / Automation",
     color: "#06b6d4",
-    skills: ["Selenium", "Scrapy"],
+    skills: ["Matplotlib", "Seaborn", "Plotly", "Selenium", "Scrapy"],
   },
   {
     category: "Systems / Hardware",
     color: "#84cc16",
-    skills: ["C", "Linux", "macOS", "Windows", "ESP32", "UART", "IoT"],
+    skills: ["Linux", "macOS", "Windows", "ESP32", "UART", "Device-to-Cloud Integration"],
   },
   {
     category: "Other",
     color: "#f97316",
-    skills: ["MATLAB", "R", "IPFS", "Leadership", "Communication"],
+    skills: ["MATLAB", "R", "IPFS", "Team Leadership", "Communication"],
   },
 ];
 
@@ -127,12 +133,12 @@ export const workExperience: WorkExperience[] = [
   {
     company: "Nexlife Inc.",
     role: "AI/ML Software Intern",
-    period: "May 2026 – Present",
+    period: "May 2026 – Aug 2026",
     accent: "#ec4899",
     bullets: [
-      "Developing and testing AI/ML-powered software applications in a production environment",
-      "Working on ML pipeline development, LLM integration, and backend engineering",
-      "Supporting real-world software solutions through debugging, testing, and feature development",
+      "Developed and tested AI/ML-powered software applications in a production environment",
+      "Worked on ML pipeline development, LLM integration, and backend engineering",
+      "Supported real-world software solutions through debugging, testing, and feature development",
     ],
   },
   {
@@ -196,24 +202,36 @@ export interface ResearchProject {
 export const researchProjects: ResearchProject[] = [
   {
     institution: "Kansas State University",
-    title: "Multi-Agent Sentiment Analysis with Large Language Models",
+    title: "Multi-Agent Reasoning and Stance Detection with Large Language Models",
     period: "Sep 2025 – Present",
     accent: "#00f5ff",
     bullets: [
-      "Developing multi-agent architectures using LLMs for stance detection and sentiment classification",
-      "Implementing comparative analysis of large language models for contextual understanding",
-      "Analyzing sentiment-target relationships in structured datasets to improve classification accuracy and model interpretability",
+      "Developing multi-agent LLM architectures for target-aware stance detection and contextual reasoning",
+      "Designing adaptive worker-allocation strategies to improve reasoning efficiency and classification performance",
+      "Developing modular prompt-optimization methods for robust stance detection across diverse targets",
+      "Conducting comparative evaluations of LLM reasoning, aggregation, and prompt-optimization strategies",
     ],
   },
   {
     institution: "Kansas State University",
-    title: "Privacy-Preserving Diffusion Models",
+    title: "Privacy Auditing and Privacy-Preserving Generative Models",
     period: "Sep 2025 – Present",
     accent: "#7c3aed",
     bullets: [
-      "Designing noise-injection and latent-space perturbation techniques for secure generative image models",
-      "Evaluating privacy-utility trade-offs in Stable Diffusion variants using CelebA and other datasets",
-      "Developing statistical metrics for identity obfuscation and DP compliance",
+      "Developing statistical methods for measuring identity leakage and privacy guarantees in generative image models",
+      "Designing and evaluating identity-level privacy audits for diffusion models and face-swapping anonymization systems",
+      "Investigating noise injection, latent-space perturbation, and privacy–utility trade-offs across image-generation settings",
+      "Extending privacy-preserving learning methods to scarce medical-video data",
+    ],
+  },
+  {
+    institution: "Kansas State University",
+    title: "Multimodal Facial Representation Learning",
+    period: "Sep 2025 – Present",
+    accent: "#ec4899",
+    bullets: [
+      "Developing multi-representation facial feature-fusion methods for cross-domain affect and distress recognition",
+      "Evaluating representation robustness under domain shifts and limited-data settings",
     ],
   },
   {
@@ -272,12 +290,31 @@ export const education: Education[] = [
   },
 ];
 
-export const publications = [
+/**
+ * Publication types drive the badge/label in PublicationsSection:
+ *  - "journal"    → published journal article
+ *  - "review"     → submitted and under review at a venue
+ *  - "manuscript" → preprint / manuscript being prepared for submission
+ */
+export type PublicationType = "journal" | "review" | "manuscript";
+
+export interface Publication {
+  type: PublicationType;
+  authors: string;
+  title: string;
+  venue: string;
+  details: string;
+  impact: string;
+  links: { label: string; url: string }[];
+  accent: string;
+}
+
+export const publications: Publication[] = [
   {
     type: "journal",
     authors: "M. Moghaddam, A. Zareian, et al.",
     title:
-      'Games of GANs: Game-Theoretical Models for Generative Adversarial Networks',
+      "Games of GANs: Game-Theoretical Models for Generative Adversarial Networks",
     venue: "Artificial Intelligence Review",
     details: "Volume 56, pages 9771–9807, 2023",
     impact: `Impact Factor: 13.9 | Q1 | ${citationCount}+ citations`,
@@ -286,51 +323,77 @@ export const publications = [
         label: "Springer",
         url: "https://link.springer.com/article/10.1007/s10462-023-10395-6",
       },
+      {
+        label: "Google Scholar",
+        url: personalInfo.scholar,
+      },
     ],
     accent: "#00f5ff",
+  },
+  {
+    type: "review",
+    authors: "V. Bondalakunta, A. Zareian, et al.",
+    title:
+      "Toward Interpretable Privacy Guarantees in Face-Swapping Anonymization",
+    venue: "IEEE Symposium on Security and Privacy",
+    details: "arXiv:2608.25750",
+    impact: "",
+    links: [{ label: "arXiv", url: "https://arxiv.org/abs/2608.25750" }],
+    accent: "#f59e0b",
+  },
+  {
+    type: "review",
+    authors: "M. A. B. Shah, A. Zareian, et al.",
+    title:
+      "Multi-Representation Facial Feature Fusion for Cross-Domain Infant Distress Recognition",
+    venue: "ICTAI 2026",
+    details: "",
+    impact: "",
+    links: [],
+    accent: "#ec4899",
+  },
+  {
+    type: "review",
+    authors: "V. Bondalakunta, A. Zareian, et al.",
+    title:
+      "A Privacy-Preserving Framework for Sharing and Learning from Scarce Medical Video",
+    venue: "HealthSec'26 · Cybersecurity in Healthcare Workshop",
+    details: "Poster paper",
+    impact: "",
+    links: [],
+    accent: "#06b6d4",
+  },
+  {
+    type: "manuscript",
+    authors: "A. Zareian, et al.",
+    title:
+      "Picture the Epsilon: Pursuing Identity-Level Privacy Guarantees for Images",
+    venue: "Preparing for PoPETs",
+    details: "arXiv:2608.17147",
+    impact: "",
+    links: [{ label: "arXiv", url: "https://arxiv.org/abs/2608.17147" }],
+    accent: "#10b981",
   },
   {
     type: "manuscript",
     authors: "M. Sabbaghan, A. Zareian, et al.",
     title:
       "Multi-Agent Reasoning with Adaptive Worker Allocation for Stance Detection",
-    venue: "Submitted to EMNLP 2026",
-    details: "",
+    venue: "Preparing for NAACL",
+    details: "arXiv:2606.11609",
     impact: "",
-    links: [],
+    links: [{ label: "arXiv", url: "https://arxiv.org/abs/2606.11609" }],
     accent: "#7c3aed",
-  },
-  {
-    type: "manuscript",
-    authors: "A. Zareian et al.",
-    title:
-      "Picture the Epsilon: Pursuing Identity-Level Privacy Guarantees for Images",
-    venue: "Submitted to IEEE S&P 2026",
-    details: "",
-    impact: "",
-    links: [],
-    accent: "#10b981",
-  },
-  {
-    type: "manuscript",
-    authors: "V. Bondalakunta, A. Zareian, et al.",
-    title:
-      "Toward Interpretable Privacy Guarantees in Face-Swapping Anonymization",
-    venue: "Submitted to IEEE S&P 2026",
-    details: "",
-    impact: "",
-    links: [],
-    accent: "#f59e0b",
   },
   {
     type: "manuscript",
     authors: "A. Zareian, et al.",
     title: "MoPrO-SD: Modular Prompt Optimization for Stance Detection",
-    venue: "Submitted to EMNLP 2026",
+    venue: "Preparing for NAACL",
     details: "",
     impact: "",
     links: [],
-    accent: "#ec4899",
+    accent: "#84cc16",
   },
 ];
 
