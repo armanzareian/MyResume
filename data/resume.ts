@@ -293,10 +293,11 @@ export const education: Education[] = [
 /**
  * Publication types drive the badge/label in PublicationsSection:
  *  - "journal"    → published journal article
+ *  - "accepted"   → accepted, proceedings not yet published
  *  - "review"     → submitted and under review at a venue
  *  - "manuscript" → preprint / manuscript being prepared for submission
  */
-export type PublicationType = "journal" | "review" | "manuscript";
+export type PublicationType = "journal" | "accepted" | "review" | "manuscript";
 
 export interface Publication {
   type: PublicationType;
@@ -331,6 +332,17 @@ export const publications: Publication[] = [
     accent: "#00f5ff",
   },
   {
+    type: "accepted",
+    authors: "M. A. B. Shah, A. Zareian, et al.",
+    title:
+      "Multi-Representation Facial Feature Fusion for Cross-Domain Infant Distress Recognition",
+    venue: "IEEE ICTAI 2026",
+    details: "International Conference on Tools with Artificial Intelligence · proceedings forthcoming",
+    impact: "",
+    links: [],
+    accent: "#ec4899",
+  },
+  {
     type: "review",
     authors: "V. Bondalakunta, A. Zareian, et al.",
     title:
@@ -340,17 +352,6 @@ export const publications: Publication[] = [
     impact: "",
     links: [{ label: "arXiv", url: "https://arxiv.org/abs/2608.25750" }],
     accent: "#f59e0b",
-  },
-  {
-    type: "review",
-    authors: "M. A. B. Shah, A. Zareian, et al.",
-    title:
-      "Multi-Representation Facial Feature Fusion for Cross-Domain Infant Distress Recognition",
-    venue: "ICTAI 2026",
-    details: "",
-    impact: "",
-    links: [],
-    accent: "#ec4899",
   },
   {
     type: "review",

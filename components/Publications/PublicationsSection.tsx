@@ -6,6 +6,7 @@ import { publications, awards, peerReviews, certifications, PublicationType } fr
 
 const TYPE_STYLE: Record<PublicationType, { badge: string; label: string }> = {
   journal: { badge: "J", label: "Journal" },
+  accepted: { badge: "A", label: "Accepted · To Appear" },
   review: { badge: "R", label: "Under Review" },
   manuscript: { badge: "M", label: "Preprint · Manuscript" },
 };
