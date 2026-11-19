@@ -425,7 +425,7 @@ export interface Certification {
 export const certifications: Certification[] = [
   {
     issuer: "2026 Heartland AI Symposium",
-    title: "Certificate of Appreciation",
+    title: "Certificate of Appreciation — Judge",
     date: "Nov 2026",
   },
   {
