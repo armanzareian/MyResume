@@ -1,12 +1,14 @@
 import citations from "./citations.json";
 
 /**
- * Citation count for the Games of GANs paper. The number lives in
- * citations.json so the deploy workflow can refresh it from Google Scholar
- * at build time (see scripts/update-citations.mjs); this value is the
- * committed fallback.
+ * Google Scholar citation counts. The numbers live in citations.json so the
+ * deploy workflow can refresh them from Google Scholar at build time (see
+ * scripts/update-citations.mjs); the committed values are the fallback.
+ *  - citationCount: all-time total across the whole profile
+ *  - gamesOfGansCitations: the Games of GANs paper alone
  */
 export const citationCount = citations.count;
+export const gamesOfGansCitations = citations.gamesOfGans ?? citations.count;
 
 export const personalInfo = {
   name: "Arman Zareian",
@@ -18,7 +20,7 @@ export const personalInfo = {
   scholar: "https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=d2_uHBcAAAAJ",
 };
 
-export const summary = `Machine Learning Engineer, Data Scientist, and Full Stack Developer with 5+ years of experience building scalable ML and data systems across industry and academia. Deep expertise in privacy-preserving diffusion models, Large Language Models (LLMs), multi-agent architectures, GANs, and vision transformers. Graduate research focused on differential privacy for generative AI, multi-agent LLM inference, and privacy-utility optimization in Stable Diffusion variants. Proven track record in latency optimization, large-scale model deployment, identity obfuscation techniques, and end-to-end ML pipelines. Published in Artificial Intelligence Review (Q1, ${citationCount}+ citations).`;
+export const summary = `Machine Learning Engineer, Data Scientist, and Full Stack Developer with 5+ years of experience building scalable ML and data systems across industry and academia. Deep expertise in privacy-preserving diffusion models, Large Language Models (LLMs), multi-agent architectures, GANs, and vision transformers. Graduate research focused on differential privacy for generative AI, multi-agent LLM inference, and privacy-utility optimization in Stable Diffusion variants. Proven track record in latency optimization, large-scale model deployment, identity obfuscation techniques, and end-to-end ML pipelines. Published in Artificial Intelligence Review (Q1, ${gamesOfGansCitations}+ citations), with papers accepted at IEEE S&P 2027 and IEEE ICTAI 2026.`;
 
 export const researchInterests = [
   "Machine Learning",
@@ -26,13 +28,6 @@ export const researchInterests = [
   "Generative Models",
   "Privacy-Preserving AI",
   "Game Theory",
-];
-
-export const stats = [
-  { value: 5, suffix: "+", label: "Years Experience" },
-  { value: citationCount, suffix: "+", label: "Citations" },
-  { value: 99.9, suffix: "%", label: "Service Uptime" },
-  { value: 40, suffix: "%", label: "Latency Cut" },
 ];
 
 export interface SkillCategory {
@@ -241,7 +236,7 @@ export const researchProjects: ResearchProject[] = [
     accent: "#10b981",
     bullets: [
       "Applied game-theoretic learning to stabilize GAN training; improved classification robustness",
-      `Published: Games of GANs — Artificial Intelligence Review (Q1, IF 15.5, ${citationCount}+ citations)`,
+      `Published: Games of GANs — Artificial Intelligence Review (Q1, IF 15.5, ${gamesOfGansCitations}+ citations)`,
     ],
   },
 ];
@@ -318,7 +313,7 @@ export const publications: Publication[] = [
       "Games of GANs: Game-Theoretical Models for Generative Adversarial Networks",
     venue: "Artificial Intelligence Review",
     details: "Volume 56, pages 9771–9807, 2023",
-    impact: `Impact Factor: 13.9 | Q1 | ${citationCount}+ citations`,
+    impact: `Impact Factor: 13.9 | Q1 | ${gamesOfGansCitations}+ citations`,
     links: [
       {
         label: "Springer",
@@ -333,25 +328,25 @@ export const publications: Publication[] = [
   },
   {
     type: "accepted",
+    authors: "V. Bondalakunta, A. Zareian, et al.",
+    title:
+      "Toward Interpretable Privacy Guarantees in Face-Swapping Anonymization",
+    venue: "IEEE S&P 2027",
+    details: "IEEE Symposium on Security and Privacy · arXiv:2608.25750",
+    impact: "",
+    links: [{ label: "arXiv", url: "https://arxiv.org/abs/2608.25750" }],
+    accent: "#f59e0b",
+  },
+  {
+    type: "accepted",
     authors: "M. A. B. Shah, A. Zareian, et al.",
     title:
       "Multi-Representation Facial Feature Fusion for Cross-Domain Infant Distress Recognition",
     venue: "IEEE ICTAI 2026",
-    details: "International Conference on Tools with Artificial Intelligence · proceedings forthcoming",
+    details: "38th IEEE International Conference on Tools with Artificial Intelligence",
     impact: "",
     links: [],
     accent: "#ec4899",
-  },
-  {
-    type: "review",
-    authors: "V. Bondalakunta, A. Zareian, et al.",
-    title:
-      "Toward Interpretable Privacy Guarantees in Face-Swapping Anonymization",
-    venue: "IEEE Symposium on Security and Privacy",
-    details: "arXiv:2608.25750",
-    impact: "",
-    links: [{ label: "arXiv", url: "https://arxiv.org/abs/2608.25750" }],
-    accent: "#f59e0b",
   },
   {
     type: "review",
@@ -365,11 +360,11 @@ export const publications: Publication[] = [
     accent: "#06b6d4",
   },
   {
-    type: "manuscript",
+    type: "review",
     authors: "A. Zareian, et al.",
     title:
       "Picture the Epsilon: Pursuing Identity-Level Privacy Guarantees for Images",
-    venue: "Preparing for PoPETs",
+    venue: "PoPETs · Proceedings on Privacy Enhancing Technologies",
     details: "arXiv:2608.17147",
     impact: "",
     links: [{ label: "arXiv", url: "https://arxiv.org/abs/2608.17147" }],
@@ -388,14 +383,22 @@ export const publications: Publication[] = [
   },
   {
     type: "manuscript",
-    authors: "A. Zareian, et al.",
+    authors: "M. Sabbaghan, N. Gyawali, A. Zareian, et al.",
     title: "MoPrO-SD: Modular Prompt Optimization for Stance Detection",
     venue: "Preparing for NAACL",
-    details: "",
+    details: "arXiv:2610.13386",
     impact: "",
-    links: [],
+    links: [{ label: "arXiv", url: "https://arxiv.org/abs/2610.13386" }],
     accent: "#84cc16",
   },
+];
+
+/** "Who I Am" stat tiles. Declared after `publications` so the paper count stays in sync. */
+export const stats = [
+  { value: 5, suffix: "+", label: "Years Experience" },
+  { value: citationCount, suffix: "+", label: "Citations" },
+  { value: publications.length, suffix: "", label: "Papers & Preprints" },
+  { value: 99.9, suffix: "%", label: "Service Uptime" },
 ];
 
 export const awards = [
@@ -420,6 +423,11 @@ export interface Certification {
 }
 
 export const certifications: Certification[] = [
+  {
+    issuer: "2026 Heartland AI Symposium",
+    title: "Certificate of Appreciation",
+    date: "Nov 2026",
+  },
   {
     issuer: "Anthropic",
     title: "Introduction to Subagents",
@@ -446,9 +454,14 @@ export const certifications: Certification[] = [
   },
   {
     issuer: "Anthropic",
-    title: "Building with the Claude API",
+    title: "Claude with the Anthropic API",
     date: "May 2026",
     url: "https://verify.skilljar.com/c/cbcvnbpcuwe4",
+  },
+  {
+    issuer: "Kansas State Accelerator",
+    title: "Fall 2025 Accelerator – Idea Track",
+    date: "Nov 2025",
   },
   { issuer: "Hugging Face", title: "LLM Agents", date: "May 2025" },
 ];
